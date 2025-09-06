@@ -13,7 +13,7 @@ jobs:
     env:
       PROXMOX_API_URL: ${{ secrets.PROXMOX_API_URL }}
       PROXMOX_USER: ${{ secrets.PROXMOX_USER }}
-      PROXMOX_TOKEN_ID: ${{ secrets.PROXMOX_TOKEN_ID }}
+      PROXMOX_TOKEN_ID: "terraform-user@pve!terraform-token"
       PROXMOX_TOKEN_SECRET: ${{ secrets.PROXMOX_TOKEN_SECRET }}
     
     steps:
