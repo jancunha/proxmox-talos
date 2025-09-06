@@ -11,10 +11,10 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PROXMOX_API_URL: ${{ secrets.PROXMOX_API_URL }}
-      PROXMOX_USER: ${{ secrets.PROXMOX_USER }}
-      PROXMOX_TOKEN_ID: ${{ secrets.PROXMOX_TOKEN_ID }}
-      PROXMOX_TOKEN_SECRET: ${{ secrets.PROXMOX_TOKEN_SECRET }}
+      TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
+      TF_VAR_pm_user: ${{ secrets.PROXMOX_USER }}
+      TF_VAR_pm_token_id: ${{ secrets.PROXMOX_TOKEN_ID }}
+      TF_VAR_pm_token_secret: ${{ secrets.PROXMOX_TOKEN_SECRET }}
     
     steps:
       - name: Checkout
