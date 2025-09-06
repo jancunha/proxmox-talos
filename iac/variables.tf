@@ -109,7 +109,22 @@ variable "disk_storage_worker" {
   default     = "zfs-vm"
 }
 
-variable "pm_api_url" {}
-variable "pm_user" {}
-variable "pm_token_id" {}
-variable "pm_token_secret" {}
+variable "pm_api_url" {
+  description = "The Proxmox API URL"
+  type        = string
+}
+
+variable "pm_user" {
+  description = "The Proxmox user"
+  type        = string
+}
+
+variable "pm_token_id" {
+  description = "The Proxmox token ID"
+  type        = string
+}
+
+variable "pm_token_secret" {
+  description = "The Proxmox token secret"
+  type        = string
+}

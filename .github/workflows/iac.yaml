@@ -39,7 +39,11 @@ jobs:
         working-directory: ./iac
 
       - name: Execução do Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan \
+          -var="pm_api_url=${{ secrets.PROXMOX_API_URL }}" \
+          -var="pm_user=${{ secrets.PROXMOX_USER }}" \
+          -var="pm_token_id=${{ secrets.PROXMOX_TOKEN_ID }}" \
+          -var="pm_token_secret=${{ secrets.PROXMOX_TOKEN_SECRET }}"
         working-directory: ./iac
         
       # - name: Execução do Terraform Apply
