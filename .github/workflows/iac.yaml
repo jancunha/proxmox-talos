@@ -1,0 +1,33 @@
+name: IaC Pipeline
+
+on: 
+  push: 
+    branches:
+      - main
+    paths: [ iac/** ]
+  workflow_dispatch:
+
+jobs:
+  terraform-exec:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        # with:
+        #   terraform_version: "1.7.0"
+        
+      - name: Execução do Terraform Init
+        run: terraform init 
+        working-directory: ./iac
+        
+      - name: Execução do Terraform Validate
+        run: terraform validate
+        working-directory: ./iac
+        
+      # - name: Execução do Terraform Apply
+      #   run: terraform apply --auto-approve
+      #   working-directory: ./iac
