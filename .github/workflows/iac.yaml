@@ -43,7 +43,7 @@ jobs:
         env:
           TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
           TF_VAR_pm_user: ${{ secrets.PROXMOX_USER }}
-          TF_VAR_pm_token_id: ${{ secrets.PROXMOX_TOKEN_ID }}
+          TF_VAR_pm_token_id: "terraform-user@pve!terraform-token"
           TF_VAR_pm_token_secret: ${{ secrets.PROXMOX_TOKEN_SECRET }}
         working-directory: ./iac
         
