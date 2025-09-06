@@ -1,18 +1,3 @@
-# locals {
-#   talos_nodes = {
-#     "talos-01" = {
-#       target_node = "pve"
-#     },
-#     "talos-02" = {
-#       target_node = "pve"
-#     },
-#     "talos-03" = {
-#       target_node = "pve"
-#     }
-#   }
-#   vmid = 510
-# }
-
 locals {
   # global config
   target      = var.target
