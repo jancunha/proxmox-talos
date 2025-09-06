@@ -2,18 +2,23 @@ name: IaC Pipeline
 
 on: 
   push: 
-    branches:
-      - main
-    paths: [ iac/** ]
+    branches: [ main ]
+    paths: [ iac/**, .github/workflows/iac.yaml ]
   workflow_dispatch:
 
 jobs:
-  terraform-exec:
+  terraform:
     runs-on: self-hosted
-    
+
+    env:
+      PROXMOX_API_URL: ${{ secrets.PROXMOX_API_URL }}
+      PROXMOX_USER: ${{ secrets.PROXMOX_USER }}
+      PROXMOX_TOKEN_ID: ${{ secrets.PROXMOX_TOKEN_ID }}
+      PROXMOX_TOKEN_SECRET: ${{ secrets.PROXMOX_TOKEN_SECRET }}
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -26,6 +31,10 @@ jobs:
         
       - name: Execução do Terraform Validate
         run: terraform validate
+        working-directory: ./iac
+
+      - name: Execução do Terraform Plan
+        run: terraform plan -out=tfplan
         working-directory: ./iac
         
       # - name: Execução do Terraform Apply
