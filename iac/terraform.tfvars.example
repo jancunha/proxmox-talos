@@ -1,0 +1,23 @@
+# Global variables
+# target = "pve"
+# agent_image = 1
+# skip_ipv6 = true
+# os_type = "l26"
+# scsihw = "virtio-scsi-single"
+# iso_storage = "iso-storage:iso/nocloud-amd64.iso"
+
+# Control plane variables
+# vmid_control_plane = 510
+# cpu_cores_control_plane = 4
+# cpu_sockets_control_plane = 1
+# memory_control_plane = 4096
+# disk_size_control_plane = "64G"
+# disk_storage_control_plane = "zfs-vm"
+
+# Workers variables
+# vmid_worker = 520
+# cpu_cores_worker = 2
+# cpu_sockets_worker = 1
+# memory_worker = 2048
+# disk_size_worker = "32G"
+# disk_storage_worker = "zfs-vm"

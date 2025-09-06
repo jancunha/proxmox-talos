@@ -14,7 +14,7 @@ Antes de começar, você precisará de:
 
 1.  **Clonar o Repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO>
+    git clone https://github.com/jancunha/proxmox-talos.git
     cd proxmox-talos/iac
     ```
 

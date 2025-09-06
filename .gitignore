@@ -1,0 +1,8 @@
+.env
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+crash.log
+talos/
+k8s/
