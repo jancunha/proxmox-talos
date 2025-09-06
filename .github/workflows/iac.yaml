@@ -16,6 +16,8 @@ jobs:
       PROXMOX_TOKEN_ID: ${{ secrets.PROXMOX_TOKEN_ID }}
       PROXMOX_TOKEN_SECRET: ${{ secrets.PROXMOX_TOKEN_SECRET }}
 
+    working-directory: ./iac
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,15 +34,15 @@ jobs:
         
       - name: Execução do Terraform Init
         run: terraform init 
-        working-directory: ./iac
+        # working-directory: ./iac
         
       - name: Execução do Terraform Validate
         run: terraform validate
-        working-directory: ./iac
+        # working-directory: ./iac
 
       - name: Execução do Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./iac
+        # working-directory: ./iac
         
       # - name: Execução do Terraform Apply
       #   run: terraform apply --auto-approve
