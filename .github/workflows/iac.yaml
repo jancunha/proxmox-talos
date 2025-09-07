@@ -11,7 +11,6 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PM_API_URL: ${{ secrets.PM_API_URL }}
       PM_API_TOKEN_ID: ${{ secrets.PM_API_TOKEN_ID }}
       PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
     
@@ -26,8 +25,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        # with:
-        #   terraform_version: "1.7.0"
         
       - name: Execução do Terraform Init
         run: terraform init 
@@ -39,13 +36,8 @@ jobs:
 
       - name: Execução do Terraform Plan
         run: terraform plan -out=tfplan -input=false
-        # env:
-        #   TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
-        #   TF_VAR_pm_user: ${{ secrets.PROXMOX_USER }}
-        #   TF_VAR_pm_token_id: ${{ secrets.PROXMOX_TOKEN_ID }}
-        #   TF_VAR_pm_token_secret: ${{ secrets.PROXMOX_TOKEN_SECRET }}
         working-directory: ./iac
         
-      # - name: Execução do Terraform Apply
-      #   run: terraform apply --auto-approve
-      #   working-directory: ./iac
+      - name: Execução do Terraform Apply
+        run: terraform apply --auto-approve
+        working-directory: ./iac
