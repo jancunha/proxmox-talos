@@ -1,9 +1,9 @@
 name: IaC Pipeline
 
 on: 
-  push: 
-    branches: [ main ]
-    paths: [ iac/**, .github/workflows/iac.yaml ]
+  # push: 
+  #   branches: [ main ]
+  #   paths: [ iac/**, .github/workflows/iac.yaml ]
   workflow_dispatch:
 
 jobs:

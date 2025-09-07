@@ -36,6 +36,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Terraform Init
+        run: terraform init -backend-config=backend.s3.tfbackend
+        working-directory: ./iac
+
       - name: Terraform Plan Destroy
         run: terraform plan -destroy -input=false
 
