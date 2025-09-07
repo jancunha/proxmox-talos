@@ -1,0 +1,31 @@
+name: IaC Destroy
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Digite 'destroy' para confirmar"
+        required: true
+        default: "cancel"
+
+jobs:
+  destroy-validation:
+    runs-on: self-hosted
+    if: ${{ github.event.inputs.confirm == 'destroy' }}
+
+    env:
+      PM_API_TOKEN_ID: ${{ secrets.PM_API_TOKEN_ID }}
+      PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Plan Destroy
+        run: terraform plan -destroy -input=false
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
