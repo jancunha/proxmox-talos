@@ -10,6 +10,7 @@ terraform {
     bucket = "tf-stage-backup"
     key    = "proxmox/pve/terraform.tfstate"
     region = "us-east-1"
+    use_lockfile = true
   }
 }
 
