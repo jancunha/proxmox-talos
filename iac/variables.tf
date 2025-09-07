@@ -114,17 +114,17 @@ variable "pm_api_url" {
   type        = string
 }
 
-variable "pm_user" {
-  description = "The Proxmox user"
-  type        = string
-}
+# variable "pm_user" {
+#   description = "The Proxmox user"
+#   type        = string
+# }
 
-variable "pm_token_id" {
-  description = "The Proxmox token ID"
-  type        = string
-}
+# variable "pm_token_id" {
+#   description = "The Proxmox token ID"
+#   type        = string
+# }
 
-variable "pm_token_secret" {
-  description = "The Proxmox token secret"
-  type        = string
-}
+# variable "pm_token_secret" {
+#   description = "The Proxmox token secret"
+#   type        = string
+# }

@@ -11,10 +11,9 @@ jobs:
     runs-on: self-hosted
 
     env:
-      TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
-      TF_VAR_pm_user: ${{ secrets.PROXMOX_USER }}
-      TF_VAR_pm_token_id: 'terraform-user@pve!terraform-token'
-      TF_VAR_pm_token_secret: ${{ secrets.PROXMOX_TOKEN_SECRET }}
+      TF_VAR_pm_api_url: "https://192.168.0.2:8006/api2/json"
+      TF_VAR_pm_api_token_id: 'terraform-user@pve!terraform-token'
+      TF_VAR_pm_api_token_secret: "f46f4aa7-4107-49fb-aa34-e226c3ccbc36"
     
     steps:
       - name: Checkout
