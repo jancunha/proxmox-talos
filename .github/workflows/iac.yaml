@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: List all environment variables
+        run: env | sort
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         # with:
