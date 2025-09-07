@@ -11,9 +11,9 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PM_API_URL: "https://192.168.0.2:8006/api2/json"
-      PM_API_TOKEN_ID: 'terraform-user@pve!terraform-token'
-      PM_API_TOKEN_SECRET: "f46f4aa7-4107-49fb-aa34-e226c3ccbc36"
+      PM_API_URL: ${{ secrets.PM_API_URL }}
+      PM_API_TOKEN_ID: ${{ secrets.PM_API_TOKEN_ID }}
+      PM_API_TOKEN_SECRET: ${{ secrets.PM_API_TOKEN_SECRET }}
     
     steps:
       - name: Checkout
@@ -45,7 +45,7 @@ jobs:
         working-directory: ./iac
 
       - name: Execução do Terraform Plan
-        run: terraform plan
+        run: terraform plan -out=tfplan -input=false
         # env:
         #   TF_VAR_pm_api_url: ${{ secrets.PROXMOX_API_URL }}
         #   TF_VAR_pm_user: ${{ secrets.PROXMOX_USER }}
