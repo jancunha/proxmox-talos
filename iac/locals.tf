@@ -28,7 +28,7 @@ locals {
   # worker config
   worker = {
 
-    count       = 2
+    count       = 1
     name_prefix = "talos-worker"
     vmid_prefix = var.vmid_worker
 

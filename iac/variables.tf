@@ -112,5 +112,5 @@ variable "disk_storage_worker" {
 variable "pm_api_url" {
   description = "The Proxmox API URL"
   type        = string
-  default = "https://192.168.0.2:8006/api2/json"
+  default     = "https://192.168.0.2:8006/api2/json"
 }
