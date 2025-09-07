@@ -24,13 +24,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Check Proxmox variables
-        run: |
-          echo "PM_API_TOKEN_ID: $PM_API_TOKEN_ID"
-          echo "PM_API_URL: $PM_API_URL"
-          # Para secrets, use apenas para debug (cuidado!)
-          echo "Token length: ${#PM_API_TOKEN_SECRET}"
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         # with:
