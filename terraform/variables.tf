@@ -32,7 +32,7 @@ variable "scsihw" {
 variable "iso_storage" {
   description = "The ISO storage to use"
   type        = string
-  default     = "iso-storage:iso/nocloud-amd64.iso"
+  default     = "backup:iso/nocloud-amd64.iso"
 }
 
 # control plane variables
@@ -69,7 +69,7 @@ variable "disk_size_control_plane" {
 variable "disk_storage_control_plane" {
   description = "The storage to use"
   type        = string
-  default     = "zfs-vm"
+  default     = "vm-storage"
 }
 
 # workers variables
@@ -106,7 +106,7 @@ variable "disk_size_worker" {
 variable "disk_storage_worker" {
   description = "The storage to use"
   type        = string
-  default     = "zfs-vm"
+  default     = "vm-storage"
 }
 
 variable "pm_api_url" {
